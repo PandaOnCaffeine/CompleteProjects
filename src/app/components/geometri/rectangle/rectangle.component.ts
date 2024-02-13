@@ -21,13 +21,29 @@ export interface RectangleData {
 @Component({
   selector: 'app-rectangle',
   standalone: true,
-  imports: [MatCardModule, MatTableModule, CommonModule, FormsModule, MatButtonModule,MatInputModule,MatFormFieldModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatCardModule,
+    MatTableModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+  ],
   templateUrl: './rectangle.component.html',
-  styleUrl: './rectangle.component.scss'
+  styleUrl: './rectangle.component.scss',
 })
 export class RectangleComponent {
-  displayedColumns: string[] = ['demo-position', 'demo-area', 'demo-circumference', 'demo-sideA', 'demo-sideB'];
-  RectangleResults: RectangleData[] = [{ position: 1, sideA: 1, sideB: 1, area: 1, circumference: 4 }];
+  displayedColumns: string[] = [
+    'demo-position',
+    'demo-area',
+    'demo-circumference',
+    'demo-sideA',
+    'demo-sideB',
+  ];
+  RectangleResults: RectangleData[] = [
+    { position: 1, sideA: 1, sideB: 1, area: 1, circumference: 4 },
+  ];
   inputA: number = 1;
   inputB: number = 1;
 
@@ -40,9 +56,9 @@ export class RectangleComponent {
       sideA: this.inputA,
       sideB: this.inputB,
       area: newRectangle.area(),
-      circumference: newRectangle.circumference()
-    }
-    this.RectangleResults.push(newData)
+      circumference: newRectangle.circumference(),
+    };
+    this.RectangleResults.push(newData);
     this.table.renderRows();
   }
 }

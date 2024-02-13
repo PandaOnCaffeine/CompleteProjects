@@ -1,18 +1,19 @@
 import { Component } from '@angular/core';
 
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 
 import { SquareComponent } from '../square/square.component';
+import { RectangleComponent } from '../rectangle/rectangle.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, MatTabsModule, SquareComponent],
+  imports: [
+    MatTabsModule,
+    SquareComponent,
+    RectangleComponent,
+  ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
 })
-export class GeometriHomeComponent {
-
-}
+export class GeometriHomeComponent {}

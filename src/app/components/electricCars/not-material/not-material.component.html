@@ -1,0 +1,14 @@
+<table>
+    <tr class="header">
+        <th class="cell">Placering</th>
+        <th class="cell">Model</th>
+        <th class="cell">Antal</th>
+        <th class="cell">Ændring Antal (%)</th>
+    </tr>
+    <tr *ngFor="let item of cars | async; let i = index" [ngClass]="{'oddRow': i % 2 === 0, 'evenRow': i % 2 !== 0}">
+        <th class="cell">{{item.rank}}</th>
+        <th class="cell">{{item.model}}</th>
+        <th class="cell">{{item.quantity}}</th>
+        <th class="cell">{{item.changeQuantityPercent}}</th>
+    </tr>
+</table>

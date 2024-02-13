@@ -1,10 +1,23 @@
 mat-card {
-    margin: 10px;
-    color: rgb(99, 99, 99);
+  margin: 10px;
+  color: rgba(0, 0, 0, 0.75);
+  background-color:rgba(0, 0, 0, 0.15);
 }
 
 .input-felt {
-    width: 200px;
-    height: 70px;
-    margin: 0 20px;
+  width: 200px;
+  height: 70px;
+  margin: 0 20px;
+}
+
+.mat-mdc-row:nth-child(even) {
+  background-color: #f1f1f1; /* Set the background color for even rows */
+}
+
+.mat-mdc-row:nth-child(odd) {
+  background-color: #ffffff; /* Set the background color for odd rows */
+}
+
+.mat-mdc-header-row {
+  background-color: #cfcfcf; /* Set the background color for header */
 }
