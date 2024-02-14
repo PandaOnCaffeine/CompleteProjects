@@ -1,0 +1,37 @@
+<form [formGroup]="NewCarData" (ngSubmit)="onSumit()" class="carForm">
+    <div>
+        <mat-form-field appearance="outline" color="primary" class="input-felt">
+            <mat-label>Placering</mat-label>
+            <input matInput type="number">
+            <mat-error></mat-error>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline" color="primary" class="input-felt">
+            <mat-label>Model</mat-label>
+            <input matInput type="number">
+            <mat-error></mat-error>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline" color="primary" class="input-felt">
+            <mat-label>Antal</mat-label>
+            <input matInput type="number">
+            <mat-error></mat-error>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="outline" color="primary" class="input-felt">
+            <mat-label>Procent Ændring</mat-label>
+            <input matInput type="number">
+            <mat-error></mat-error>
+        </mat-form-field>
+    </div>
+</form>
+
+<!-- #region 
+        <mat-form-field appearance="outline" color="primary" class="input-felt">
+            <mat-label>Bredde</mat-label>
+            <input matInput [(ngModel)]="inputB">
+        </mat-form-field>
+-->

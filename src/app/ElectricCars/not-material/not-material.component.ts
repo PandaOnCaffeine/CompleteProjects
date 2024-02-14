@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ECarsData, ElectricCarsService } from '../../../services/electric-cars.service';
+import { ECarsData, ElectricCarsService } from '../Services/electric-cars.service';
 @Component({
   selector: 'app-not-material',
   standalone: true,

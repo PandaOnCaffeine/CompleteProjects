@@ -1,16 +1,17 @@
 import { Routes } from '@angular/router';
 
 // Geometri
-import { GeometriHomeComponent } from './components/geometri/home/home.component';
-import { SquareComponent } from './components/geometri/square/square.component';
-import { RectangleComponent } from './components/geometri/rectangle/rectangle.component';
-import { ElectricHomeComponent } from './components/electricCars/home/home.component';
+import { GeometriHomeComponent } from './Geometri/geometri-home/geometri-home.component';
 
 // Electric Cars
+import { CarsHomeComponent } from './ElectricCars/cars-home/cars-home.component';
+
+// Fossil Cars
+import { FossilHomeComponent } from './FossilCars/fossil-home/fossil-home.component';
+
 
 export const routes: Routes = [
     { path: 'geometri', component: GeometriHomeComponent, pathMatch: 'full' },
-    { path: 'square', component: SquareComponent, pathMatch: 'full' },
-    { path: 'rectangle', component: RectangleComponent, pathMatch: 'full' },
-    { path: 'cars', component: ElectricHomeComponent, pathMatch: 'full' },
+    { path: 'cars', component: CarsHomeComponent, pathMatch: 'full' },
+    { path: 'fossil', component: FossilHomeComponent, pathMatch: 'full' },
 ];

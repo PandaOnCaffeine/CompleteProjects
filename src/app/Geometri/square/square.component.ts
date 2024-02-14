@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { Square } from '../../../classes/geometri/square';
+import { Square } from '../Classes/square';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatTable, MatTableModule } from '@angular/material/table';

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeComponent } from './home.component';
+import { GeometriHomeComponent } from './geometri-home.component';
 
-describe('HomeComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+describe('GeometriHomeComponent', () => {
+  let component: GeometriHomeComponent;
+  let fixture: ComponentFixture<GeometriHomeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HomeComponent]
+      imports: [GeometriHomeComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(HomeComponent);
+    fixture = TestBed.createComponent(GeometriHomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
