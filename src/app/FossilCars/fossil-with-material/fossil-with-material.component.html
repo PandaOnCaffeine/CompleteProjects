@@ -1,37 +1,94 @@
-<form [formGroup]="NewCarData" (ngSubmit)="onSumit()" class="carForm">
-    <div>
-        <mat-form-field appearance="outline" color="primary" class="input-felt">
-            <mat-label>Placering</mat-label>
-            <input matInput type="number">
-            <mat-error></mat-error>
-        </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field appearance="outline" color="primary" class="input-felt">
-            <mat-label>Model</mat-label>
-            <input matInput type="number">
-            <mat-error></mat-error>
-        </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field appearance="outline" color="primary" class="input-felt">
-            <mat-label>Antal</mat-label>
-            <input matInput type="number">
-            <mat-error></mat-error>
-        </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field appearance="outline" color="primary" class="input-felt">
-            <mat-label>Procent Ændring</mat-label>
-            <input matInput type="number">
-            <mat-error></mat-error>
-        </mat-form-field>
-    </div>
-</form>
+<!-- Add Card -->
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>Add New Car To Table</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="NewCarData" (ngSubmit)="onSubmitNewData()" class="carForm">
+            <div>
+                <mat-form-field appearance="fill" color="primary" class="input-felt">
+                    <mat-label>Placering</mat-label>
+                    <input matInput formControlName='rank' type="number">
+                    <mat-error *ngIf="NewCarData.get('rank')?.hasError('required')">This field is required</mat-error>
 
-<!-- #region 
-        <mat-form-field appearance="outline" color="primary" class="input-felt">
-            <mat-label>Bredde</mat-label>
-            <input matInput [(ngModel)]="inputB">
-        </mat-form-field>
--->
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill" color="primary" class="input-felt">
+                    <mat-label>Model</mat-label>
+                    <input matInput formControlName='model' type="text">
+                    <mat-error *ngIf="NewCarData.get('model')?.hasError('required')">This field is required</mat-error>
+
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill" color="primary" class="input-felt">
+                    <mat-label>Antal</mat-label>
+                    <input matInput formControlName='quantity' type="number">
+                    <mat-error *ngIf="NewCarData.get('quantity')?.hasError('required')">This field is
+                        required</mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill" color="primary" class="input-felt">
+                    <mat-label>Procent Ændring</mat-label>
+                    <input matInput formControlName='changeProcent' type="number">
+                    <mat-error *ngIf="NewCarData.get('changeProcent')?.hasError('required')">This field is
+                        required</mat-error>
+
+                </mat-form-field>
+            </div>
+            <button [disabled]="NewCarData.invalid" mat-raised-button color="primary" type="submit">Add</button>
+        </form>
+    </mat-card-content>
+</mat-card>
+
+<!-- Remove Card -->
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>Delete Car</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="DeleteCarData" (ngSubmit)="onSubmitDeleteData()" class="carForm">
+            <div>
+                <mat-form-field appearance="fill" color="primary" class="input-felt">
+                    <mat-label>Placering</mat-label>
+                    <input matInput formControlName='id' type="number">
+                    <mat-error *ngIf="DeleteCarData.get('id')?.hasError('required')">This field is required</mat-error>
+                </mat-form-field>
+            </div>
+            <button [disabled]="DeleteCarData.invalid" mat-raised-button color="primary" type="submit">Delete</button>
+        </form>
+    </mat-card-content>
+</mat-card>
+
+
+<table mat-table [dataSource]="carsArray">
+    <!-- Rank Column -->
+    <ng-container matColumnDef="rank">
+        <th mat-header-cell *matHeaderCellDef>Placering</th>
+        <td (click)="openDialog(car)" mat-cell *matCellDef="let car"> {{car.rank}} </td>
+    </ng-container>
+
+    <!-- Model Column -->
+    <ng-container matColumnDef="model">
+        <th mat-header-cell *matHeaderCellDef>Model</th>
+        <td (click)="openDialog(car)" mat-cell *matCellDef="let car"> {{car.model}} </td>
+    </ng-container>
+
+    <!-- Quantity Column -->
+    <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef>Antal</th>
+        <td (click)="openDialog(car)" mat-cell *matCellDef="let car"> {{car.quantity}} </td>
+    </ng-container>
+
+    <!-- ChangeProcent Column -->
+    <ng-container matColumnDef="QuantityPercent">
+        <th mat-header-cell *matHeaderCellDef>Ændring Antal (%)</th>
+        <td (click)="openDialog(car)" mat-cell *matCellDef="let car"> {{car.changeQuantityProcent}}% </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[10, 20, 50]" aria-label="Select page of cars"></mat-paginator>

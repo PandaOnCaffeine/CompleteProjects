@@ -1,3 +1,56 @@
-.carForm{
+/*                              */
+/*             Form             */
+/*                              */
+
+.carForm {
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: safe;
+}
+
+.carForm div {
     margin: 5px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+// .example-card {
+//     max-width: 400px;
+//     margin-bottom: 8px;
+//   }
+
+mat-card {
+  margin: 10px;
+  color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+/*                              */
+/*          Mat Table           */
+/*                              */
+
+.mat-mdc-row:nth-child(even) {
+  background-color: #f1f1f1; /* Set the background color for even rows */
+}
+
+.mat-mdc-row:nth-child(odd) {
+  background-color: #ffffff; /* Set the background color for odd rows */
+}
+
+.mat-mdc-header-row {
+  background-color: #cfcfcf; /* Set the background color for header */
+}
+
+.mat-mdc-cell {
+  align-items: center;
+}
+
+.mdc-data-table__cell,
+.mdc-data-table__header-cell {
+  text-align: center;
 }
