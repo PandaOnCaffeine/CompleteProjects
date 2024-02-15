@@ -1,0 +1,43 @@
+<!-- Add Card -->
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Add New Car To Table</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="NewCarData" (ngSubmit)="onSubmitNewData()" class="carForm">
+            <div>
+                <mat-form-field appearance="fill" color="primary">
+                    <mat-label>Placering</mat-label>
+                    <input matInput formControlName='rank' type="number">
+                    <mat-error *ngIf="NewCarData.get('rank')?.hasError('required')">This field is required</mat-error>
+
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill" color="primary">
+                    <mat-label>Model</mat-label>
+                    <input matInput formControlName='model' type="text">
+                    <mat-error *ngIf="NewCarData.get('model')?.hasError('required')">This field is required</mat-error>
+
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill" color="primary">
+                    <mat-label>Antal</mat-label>
+                    <input matInput formControlName='quantity' type="number">
+                    <mat-error *ngIf="NewCarData.get('quantity')?.hasError('required')">This field is
+                        required</mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill" color="primary">
+                    <mat-label>Procent Ændring</mat-label>
+                    <input matInput formControlName='changeProcent' type="number">
+                    <mat-error *ngIf="NewCarData.get('changeProcent')?.hasError('required')">This field is
+                        required</mat-error>
+                </mat-form-field>
+            </div>
+            <button [disabled]="NewCarData.invalid" mat-raised-button color="primary" type="submit">Add</button>
+        </form>
+    </mat-card-content>
+</mat-card>

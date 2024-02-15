@@ -1,0 +1,26 @@
+/*                              */
+/*             Form             */
+/*                              */
+
+.carForm {
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: safe;
+}
+
+.carForm div {
+  margin: 5px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+mat-card {
+  margin: 10px;
+  color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.15);
+}

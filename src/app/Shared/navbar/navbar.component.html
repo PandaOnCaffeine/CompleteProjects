@@ -2,7 +2,7 @@
     <mat-toolbar-row>
         <div class="navigation-items">
             <img src="../favicon.ico" alt="">
-            <a href="/home">Home</a>
+            <mat-slide-toggle color="primary" [(ngModel)]="auth.isAdmin">Admin: {{auth.isAdmin}}</mat-slide-toggle>
         </div>
 
         <div>
@@ -11,13 +11,16 @@
                     <a href="/sideKammerat">Din Sidekammerat</a>
                 </li>
                 <li>
-                    <a href="/geometri">Geometri</a>
+                    <a routerLink="/geometri">Geometri</a>
                 </li>
                 <li>
-                    <a href="/cars">El-Biler</a>
+                    <a routerLink="/cars">El-Biler</a>
                 </li>
                 <li>
-                    <a href="/fossil">Fossil-Biler</a>
+                    <a routerLink="/fossil">Fossil-Biler</a>
+                </li>
+                <li>
+                    <a routerLink="/fossilAdmin">Fossil-Admin</a>
                 </li>
             </ul>
         </div>

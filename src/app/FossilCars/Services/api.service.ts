@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { AddNewCar } from '../../interfaces/add-new-car';
@@ -10,8 +10,8 @@ import { AddNewCar } from '../../interfaces/add-new-car';
 
 export class ApiService {
   private apiUrl = 'https://localhost:7094/api';
-  constructor(private http: HttpClient) { }
 
+  constructor(private http: HttpClient) { }
 
   GetData(): Observable<any> {
     return this.http.get(`${this.apiUrl}/GetData`);
@@ -23,7 +23,6 @@ export class ApiService {
 
   EditData(data: AddNewCar): Observable<any>{
     return this.http.put(`${this.apiUrl}/EditCar`,data);
-
   }
 
   DeleteData(id: number): Observable<any>{

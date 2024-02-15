@@ -43,9 +43,9 @@ export class FossilWithMaterialComponent implements OnInit, AfterViewInit {
   public carsArray = new MatTableDataSource<any>([]);
 
   NewCarData!: FormGroup;
-  DeleteCarData!: FormGroup;
 
   constructor(private api: ApiService, public dialog: MatDialog) {
+
   }
 
   @ViewChild(MatPaginator) private paginator!: MatPaginator;
@@ -63,7 +63,8 @@ export class FossilWithMaterialComponent implements OnInit, AfterViewInit {
       ]),
       quantity: new FormControl('', [
         Validators.required,
-        Validators.minLength(1)
+        Validators.minLength(1),
+        Validators.pattern("^\d+$")
       ]),
       changeProcent: new FormControl('', [
         Validators.required,
@@ -71,11 +72,7 @@ export class FossilWithMaterialComponent implements OnInit, AfterViewInit {
       ])
     });
 
-    this.DeleteCarData = new FormGroup({
-      id: new FormControl('', [
-        Validators.required
-      ])
-    })
+
   }
 
   ngAfterViewInit(): void {
@@ -92,15 +89,16 @@ export class FossilWithMaterialComponent implements OnInit, AfterViewInit {
     this.AddData(newCar);
   }
 
-  onSubmitDeleteData(){
-    this.DeleteData(this.DeleteCarData.get('id')?.value)
-  }
+
+
+  test: any = [];
+
 
   async FetchData(): Promise<void> {
     this.api.GetData().subscribe(
       (data) => {
         this.carsArray.data = data;
-        //console.log(data); // log data from api
+        console.log(data); // log data from api
       },
       (error) => {
         console.error("FetchData Error: " + error.error);
@@ -120,17 +118,7 @@ export class FossilWithMaterialComponent implements OnInit, AfterViewInit {
     )
   }
 
-  async DeleteData(id: number): Promise<void> {
-    this.api.DeleteData(id).subscribe(
-      (data) => {
-        this.FetchData();
-        console.log(data);
-      },
-      (error) => {
-        console.error(error);
-      }
-    )
-  }
+
 
   openDialog(data: any): void {
     const dialogRef = this.dialog.open(DialogComponent, {
